@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confession Letter 💌</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Envelope */
+    .envelope {
+      position: relative;
+      width: 250px;
+      height: 150px;
+      background: #fff;
+      border: 2px solid #e63946;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .envelope:hover {
+      transform: scale(1.05);
+    }
+
+    .envelope::before,
+    .envelope::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+
+    /* Top flap */
+    .envelope::before {
+      top: 0;
+      left: 0;
+      border-width: 0 125px 75px 125px;
+      border-color: transparent transparent #e63946 transparent;
+    }
+
+    /* Bottom flap */
+    .envelope::after {
+      bottom: 0;
+      left: 0;
+      border-width: 75px 125px 0 125px;
+      border-color: #e63946 transparent transparent transparent;
+    }
+
+    /* Letter */
+    .letter {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100%);
+      width: 220px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      opacity: 0;
+      transition: all 1s ease;
+      z-index: -1;
+      text-align: center;
+    }
+
+    .letter.show {
+      transform: translateX(-50%) translateY(-180px);
+      opacity: 1;
+      z-index: 1;
+    }
+
+    h2 {
+      font-size: 20px;
+      color: #e63946;
+    }
+
+    p {
+      font-size: 14px;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    /* Heart animation */
+    .heart {
+      font-size: 24px;
+      animation: heartbeat 1.2s infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Envelope -->
+  <div class="envelope" onclick="openLetter()">
+    <div class="letter" id="letter">
+      <h2>Hi Miss Matcha Girl! 💕</h2>
+      <p>Matagal ko na tong gustong sabihin sayo...</p>
+      <p>Kaso nahihiya lang ako.</p>
+      <p>Pwede ba kitang ligawan? 😳</p>
+      <p><strong>Sana ma-appreciate mo to ❤️</strong></p>
+      <div class="heart">💖</div>
+    </div>
+  </div>
+
+  <script>
+    function openLetter() {
+      document.getElementById("letter").classList.toggle("show");
+    }
+  </script>
+</body>
+</html>
